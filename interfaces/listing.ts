@@ -9,7 +9,7 @@ export interface Listing {
   host_id: number;
   neighbourhood: string;
   room_type: string;
-  column_10: number;
+  column_10: number; // Room price /night /person
   minimum_nights: number;
   number_of_reviews: number;
   last_review: string | null;
@@ -18,7 +18,7 @@ export interface Listing {
   availability_365: number;
   updated_date: string;
   city: string;
-  column_19: string;
+  column_19: string; // Country
   coordinates: Coordinates;
-  column_20: string;
+  column_20: string; // Full location description
 }
