@@ -6,12 +6,14 @@ import {
   TouchableOpacity,
   StyleSheet,
   Text,
+  Image,
 } from "react-native";
 import { defaultStyles } from "@/constants/Styles";
 import { Link } from "expo-router";
 import { Listing } from "@/interfaces/listing";
 import { Ionicons } from "@expo/vector-icons";
 import Animated, { FadeInRight, FadeOutLeft } from "react-native-reanimated";
+import propertyImage from "@/assets/images/property.jpeg";
 
 interface Props {
   listings: any[];
@@ -39,9 +41,9 @@ const Listings = ({ listings: items, category }: Props) => {
           entering={FadeInRight}
           exiting={FadeOutLeft}
         >
-          {/* <Image source={{ uri: item.medium_url }} style={styles.image} /> */}
+          <Image source={propertyImage} style={styles.image} />
           <TouchableOpacity
-            style={{ position: "absolute", right: 30, top: 15 }}
+            style={{ position: "absolute", right: 30, top: 30 }}
           >
             <Ionicons name="heart-outline" size={24} color="#000" />
           </TouchableOpacity>
@@ -92,11 +94,11 @@ const styles = StyleSheet.create({
     gap: 10,
     marginVertical: 16,
   },
-  // image: {
-  //   width: "100%",
-  //   height: 300,
-  //   borderRadius: 10,
-  // },
+  image: {
+    width: "100%",
+    height: 300,
+    borderRadius: 10,
+  },
   info: {
     textAlign: "center",
     fontFamily: "montserrat",

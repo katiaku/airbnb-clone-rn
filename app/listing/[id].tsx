@@ -6,6 +6,7 @@ import {
   Dimensions,
   TouchableOpacity,
   Share,
+  Image,
 } from "react-native";
 import listingsData from "@/assets/data/air-bnb-listings.json";
 import Colors from "@/constants/Colors";
@@ -20,6 +21,8 @@ import { Listing } from "@/interfaces/listing";
 import { Ionicons } from "@expo/vector-icons";
 import { defaultStyles } from "@/constants/Styles";
 import { useLayoutEffect } from "react";
+import hostImage from "@/assets/images/host.jpg";
+import propertyImage from "@/assets/images/property.jpeg";
 
 const { width } = Dimensions.get("window");
 const IMG_HEIGHT = 300;
@@ -123,11 +126,11 @@ const Page = () => {
         ref={scrollRef}
         scrollEventThrottle={16}
       >
-        {/* <Animated.Image
-          source={{ uri: listing.xl_picture_url }}
+        <Animated.Image
+          source={propertyImage}
           style={[styles.image, imageAnimatedStyle]}
           resizeMode="cover"
-        /> */}
+        />
 
         <View style={styles.infoContainer}>
           <Text style={styles.name}>{listing.name}</Text>
@@ -144,10 +147,7 @@ const Page = () => {
           <View style={styles.divider} />
 
           <View style={styles.hostView}>
-            {/* <Image
-            source={{ uri: listing.host_picture_url }}
-            style={styles.host}
-          /> */}
+            <Image source={hostImage} style={styles.host} resizeMode="cover" />
 
             <View>
               <Text style={{ fontWeight: "500", fontSize: 16 }}>
@@ -197,10 +197,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "white",
   },
-  // image: {
-  //   height: IMG_HEIGHT,
-  //   width: width,
-  // },
+  image: {
+    height: IMG_HEIGHT,
+    width: width,
+  },
   infoContainer: {
     padding: 24,
     backgroundColor: "#fff",
