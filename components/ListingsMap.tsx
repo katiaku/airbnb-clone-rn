@@ -4,6 +4,7 @@ import { Marker } from "react-native-maps";
 import { ListingGeo } from "@/interfaces/listingGeo";
 import { useRouter } from "expo-router";
 import MapView from "react-native-map-clustering";
+import { memo } from "react";
 
 interface Props {
   listings: any;
@@ -16,7 +17,7 @@ const INITIAL_REGION = {
   longitudeDelta: 9,
 };
 
-const ListingsMap = ({ listings }: Props) => {
+const ListingsMap = memo(({ listings }: Props) => {
   const router = useRouter();
 
   const onMarkerSelected = (item: ListingGeo) => {
@@ -84,7 +85,7 @@ const ListingsMap = ({ listings }: Props) => {
       </MapView>
     </View>
   );
-};
+});
 
 const styles = StyleSheet.create({
   marker: {
